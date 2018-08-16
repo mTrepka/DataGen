@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class NameFactory extends DataFactory {
     public List<String> generateData(int amount){
-        List<String> result = new ArrayList<>();
+        var result = new ArrayList<String>();
         Random random;
 
             if(seed!=0)
@@ -24,4 +24,8 @@ public class NameFactory extends DataFactory {
         return this;
     }
 
+    public String getSingle(){
+        var random = new Random();
+        return (String) data.get(random.nextInt(data.size()));
+    }
 }

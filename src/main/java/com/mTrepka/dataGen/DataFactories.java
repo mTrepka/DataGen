@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataFactories {
-    public static NameFactory getNameFactory(){
+    public static NameFactory getNameFactory() {
         var nameFactory = new NameFactory();
         nameFactory.withData(defaultNameData());
         return nameFactory;
     }
-    public static NameFactory getNameFactoryWithData(List data){
+    public static NameFactory getNameFactoryWithData(List<String> data){
         var nameFactory = new NameFactory();
         nameFactory.withData(data);
         return nameFactory;
@@ -20,6 +20,31 @@ public class DataFactories {
         adressFactoryFactory.setStreetData(defaultStreetData());
         return adressFactoryFactory;
     }
+
+    public static ArrayList to(int first,int last){
+        if(first>last) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        var array = new ArrayList<>();
+        var i =0;
+        while(last>=first){
+            array.add(first);
+            i++;
+            first++;
+        }
+        return array;
+    }
+
+    public static ArrayList to(int toNumber){
+        var array = new ArrayList<>();
+        var i =0;
+        while(toNumber>=i){
+            array.add(i);
+            i++;
+        }
+        return array;
+    }
+
     private static List<String> defaultNameData(){
         var defaultData = new ArrayList<String>();
         defaultData.add("Jacob");
@@ -64,7 +89,7 @@ public class DataFactories {
     }
 
     private static List<String> defaultStreetData(){
-        List<String> defaultData = new ArrayList<String>();
+        List<String> defaultData = new ArrayList<>();
         defaultData.add("Long");
         defaultData.add("Short");
         defaultData.add("White");

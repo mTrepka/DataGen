@@ -4,9 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 
 public abstract class DataFactory<T> {
-    protected List<Object> data;
-    protected long seed;
+    List<Object> data;
+    long seed;
     public abstract List<T> generateData(int amount);
+    public abstract Object getSingle();
     public DataFactory withSeed(String seed){
         this.seed = seed.hashCode();
         return this;
@@ -15,4 +16,5 @@ public abstract class DataFactory<T> {
         this.seed = seed;
         return this;
     }
+
 }
